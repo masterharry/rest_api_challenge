@@ -1,0 +1,172 @@
+{
+    "basePath": "http://localhost/rest_api/api/",
+    "swaggerVersion": "1.2",
+    "apiVersion": "0.1",
+    "resourcePath": "/employee",
+    "apis": [
+        {
+            "path": "employee",
+            "description": "list of api",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "view or search employee",
+                    "nickname": "hiren",
+                    "parameters": [
+                        {
+                            "paramType": "query",
+                            "name": "id",
+                            "type": "string",
+                            "required": false,
+                            "description": "id table"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "q",
+                            "type": "string",
+                            "required": false,
+                            "description": "search by name or email"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                },
+                {
+                    "method": "post",
+                    "summary": "add employee",
+                    "nickname": "hiren",
+                    "parameters": [
+                        {
+                            "paramType": "body",
+                            "name": "body",
+                            "type": "employee",
+                            "required": false,
+                            "description": "id table"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                },
+                {
+                    "method": "PUT",
+                    "summary": "update employee",
+                    "nickname": "hiren",
+                    "parameters": [
+                        {
+                            "paramType": "body",
+                            "name": "body",
+                            "type": "upd_employee",
+                            "required": false,
+                            "description": "body"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Delete employee by id",
+                    "nickname": "hiren",
+                    "parameters": [
+                        {
+                            "paramType": "query",
+                            "name": "id",
+                            "type": "string",
+                            "required": false,
+                            "description": "id table"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                }
+            ]
+        }
+    ],
+    "models": {
+        "employee": {
+            "id": "employee",
+            "properties": {
+                "dept_id": {
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "contact_numbers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "9876543210"
+                    }
+                },
+                "addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Sample Address 1"
+                    }
+                }
+            }
+        },
+        "upd_employee": {
+            "id": "upd_employee",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "dept_id": {
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "apiVersion": "0.1",
+    "swaggerVersion": "1.2",
+    "apis": [
+        {
+            "path": "/department.{format}",
+            "description": "list of api"
+        },
+        {
+            "path": "/employee.{format}",
+            "description": "list of api"
+        }
+    ]
+}

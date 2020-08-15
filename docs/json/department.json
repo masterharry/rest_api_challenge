@@ -1,0 +1,80 @@
+{
+    "basePath": "http://localhost/rest_api/api/",
+    "swaggerVersion": "1.2",
+    "apiVersion": "0.1",
+    "resourcePath": "/department",
+    "apis": [
+        {
+            "path": "department",
+            "description": "list of api",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "View Department",
+                    "nickname": "hiren",
+                    "parameters": [
+                        {
+                            "paramType": "query",
+                            "name": "id",
+                            "type": "string",
+                            "required": false,
+                            "description": "id table"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                },
+                {
+                    "method": "post",
+                    "summary": "add department",
+                    "nickname": "hiren",
+                    "parameters": [
+                        {
+                            "paramType": "body",
+                            "name": "body",
+                            "type": "department",
+                            "required": false,
+                            "description": "id table"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                }
+            ]
+        }
+    ],
+    "models": {
+        "department": {
+            "id": "department",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}
