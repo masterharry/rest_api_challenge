@@ -6,9 +6,18 @@ class ServicesModel extends CI_Model {
         parent::__construct();
     }
 
+    function get_details_by_condition($table,$primary_id, $id){
+      if($table !=""){
+        $this->db->where($primary_id,$id);
+        $query = $this->db->get($table);
+        return array('status' =>true, 'message' => 'Sucess query', 'response'=> $query->result());
+      } else {
+        return array('status' =>false, 'message' => 'Error, table not found');
+      }
+    }
+
 	function get($table, $data , $limit=20, $offset=0,$search_query = null){
     if($table !=""){
-      
       if($search_query != ''){
         $this->db->or_like(array('vEmpUserName' => $search_query, 'vEmail' => $search_query));
       }

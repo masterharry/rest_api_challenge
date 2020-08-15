@@ -89,11 +89,35 @@ class Employee extends REST_Controller {
         $data = [];
         if($id == null) {
           $response = $this->servicesmodel->get('employee', $data , null, null,$search_query);
+
+          $emp_data = $response['response'];
+
+          if($emp_data){
+            foreach($emp_data as $key => $value){
+              $empId = $value->iEmpId;
+              $addresses = $this->servicesmodel->get_details_by_condition('addresses', 'iEmpId',$empId);
+              $contacts = $this->servicesmodel->get_details_by_condition('contacts', 'iEmpId',$empId);
+              $emp_data[$key]->addressess = $addresses['response'];
+              $emp_data[$key]->contacts = $contacts['response'];
+            }
+          }
        } else {
          if($limit == null) { $limit == 20; }
          if($offset == null) { $offset == 0; }
          $data = array('iEmpId' => $id);
          $response = $this->servicesmodel->get('employee', $data , $limit, $offset,$search_query);
+
+         $emp_data = $response['response'];
+
+          if($emp_data){
+            foreach($emp_data as $key => $value){
+              $empId = $value->iEmpId;
+              $addresses = $this->servicesmodel->get_details_by_condition('addresses', 'iEmpId',$empId);
+              $contacts = $this->servicesmodel->get_details_by_condition('contacts', 'iEmpId',$empId);
+              $emp_data[$key]->addressess = $addresses['response'];
+              $emp_data[$key]->contacts = $contacts['response'];
+            }
+          }
        }
        if($response) {
          $this->response($response, REST_Controller::HTTP_OK);
